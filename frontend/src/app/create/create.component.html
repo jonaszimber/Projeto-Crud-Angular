@@ -1,0 +1,56 @@
+<div class="container mt-5 bg-secondary">
+
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{errormsg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <form [formGroup]="userForm" >
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="fullname" placeholder="Nome Completo">
+        </div>
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="email" placeholder="Seu Melhor Email">
+        </div>
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="mobile" placeholder="Digite Seu Celular">
+        </div>
+        <div class="col-lg-4 mt-2">
+            <input type="date" class="form-control" formControlName="databorn" placeholder="DD/MM/AAAA">
+        </div>
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="adress" placeholder="Rua e Núemro">
+        </div>
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="city" placeholder="Digite Sua Cidade">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <input type="text" class="form-control" formControlName="state" placeholder="Digite o Estado">
+        </div>
+          <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="cep" placeholder="Cep">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <input type="text" class="form-control" formControlName="marital" placeholder="Estado Civil">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <input type="text" class="form-control" formControlName="car" placeholder="Você tem Carro?">
+        </div>
+
+        <div class="col-lg-4 mt-2" *ngIf="!getparamid" (click)="userSubimit()">
+            <button class="btn btn-primary btn-sm">Criar</button>
+        </div>
+        <div class="col-lg-4 mt-2" *ngIf="getparamid" (click)="userUpdate()">
+            <button class="btn btn-dark btn-sm">Atualizar</button>
+        </div>
+        
+        
+    </form>
+
+</div>
